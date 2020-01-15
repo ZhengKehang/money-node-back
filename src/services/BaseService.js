@@ -1,14 +1,15 @@
-import {dates} from '../utils/index.mjs'
+import {dates,dbs} from '../utils/index.js'
+import collection from '../modules/collection.js'
 import cheerio from 'cheerio'
 import superagent from 'superagent'
 import mongodb from 'mongodb'
-const connectUrl = "mongodb://localhost"
 export default class BaseService {
     constructor() {
         this.dates = dates;
+        this.dbs = dbs;
         this.cheerio = cheerio;
         this.superagent = superagent;
         this.mongoClient = mongodb.MongoClient;
-        this.connectUrl = connectUrl;
+        this.COLLERCTION = collection;
     }
 }

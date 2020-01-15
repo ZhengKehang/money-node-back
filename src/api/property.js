@@ -1,4 +1,4 @@
-import PropertyService from '../services/PropertyService.mjs'
+import PropertyService from '../services/PropertyService.js'
 const propertyService = new PropertyService();
 export default {
     getList(app){
