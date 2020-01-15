@@ -1,12 +1,15 @@
 import BaseService from './BaseService.js'
+import Property from '../modules/property/property.js'
 export default class PropertyService extends BaseService {
-    getProperties(req,res){
+    getProperties(req){
     }
-    insertProperty(req,res){
-        let propertyOne = {name:"ceshi",number:1000,status:20,remark:"ceshi",isDelete:0,createTime:new Date().getTime(),updateTime:null,rateRules:null};
-        this.dbs.myMoney(this.COLLERCTION.PROPERTY).insertOne(propertyOne,function(err, resp) {
-            if (err) throw err;
-            res.send(resp);
-        });
+    insertProperty(propertyParams){
+        let property = new Property(propertyParams);
+        return new Promise((resolve, reject) => {
+            this.dbs.myMoney(this.COLLERCTION.PROPERTY).insertOne(property,function(err, resp) {
+                if (err) throw err;
+                resolve(resp)
+            });
+        })
     }
 }

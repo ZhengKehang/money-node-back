@@ -1,14 +1,17 @@
 import PropertyService from '../services/PropertyService.js'
+import {apis} from "../utils/index.js";
 const propertyService = new PropertyService();
 export default {
     getList(app){
         app.get('/property/getList', function(req, res){
-            propertyService.getProperties(req,res);
+            propertyService.getProperties(req);
         });
     },
     insert(app){
-        app.get('/property/insert', function(req, res){
-            propertyService.insertProperty(req,res);
+        apis.postApi(app,'/property/create', (req,res)=>{
+            propertyService.insertProperty(req.body).then(resp=>{
+                res.send(resp);
+            })
         });
     }
 }

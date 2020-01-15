@@ -1,8 +1,12 @@
 import {apis} from '../utils/index.js'
+import ChangeService from '../services/ChangeService.js'
+const changeService = new ChangeService();
 export default {
-    getChanges(app){
-        app.get('/changes', function(req, res){
-
+    insert(app){
+        apis.postApi(app,'/change/create', (req,res)=>{
+            changeService.insertChange(req.body).then(resp=>{
+                res.send(resp)
+            })
         });
     }
 }
