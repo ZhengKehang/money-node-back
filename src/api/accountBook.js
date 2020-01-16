@@ -8,5 +8,10 @@ export default {
                 res.send(resp);
             })
         });
+    },
+    getListByUid(app){
+        app.get('/accountBook/getListByUid', function(req, res){
+            accountService.getAccountBooks(req.body,'uid');
+        });
     }
 }

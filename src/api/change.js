@@ -8,5 +8,15 @@ export default {
                 res.send(resp)
             })
         });
-    }
+    },
+    getListByABId(app){
+        app.get('/change/getListByABId', function(req, res){
+            changeService.getChanges(req.body,'ABId');
+        });
+    },
+    getListByPId(app){
+        app.get('/change/getListByPId', function(req, res){
+            changeService.getChanges(req.body,'PId');
+        });
+    },
 }

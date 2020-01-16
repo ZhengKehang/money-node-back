@@ -2,6 +2,12 @@ import BaseService from './BaseService.js'
 import User from '../modules/user/user.js'
 import md5 from 'md5'
 export default class UserService extends BaseService{
+    /**
+     * 用户查询和对比
+     * @param loginInfo
+     *
+     * @returns {Promise<any>}
+     */
     login(loginInfo){
         return new Promise((resolve, reject)=>{
             let search = {account:loginInfo.account,password: md5(loginInfo.password)};
