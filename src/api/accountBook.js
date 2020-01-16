@@ -5,13 +5,15 @@ export default {
     insert(app){
         apis.postApi(app,'/accountBook/create', (req,res)=>{
             accountService.insertAccountBook(req.body).then(resp=>{
-                res.send(resp);
+                res.send(resp)
             })
         });
     },
     getListByUid(app){
-        app.get('/accountBook/getListByUid', function(req, res){
-            accountService.getAccountBooks(req.body,'uid');
+        apis.postApi(app,'/accountBook/getListByUid', function(req, res){
+            accountService.getAccountBooks(req.body,'uid').then(resp=>{
+                res.send(resp)
+            });
         });
     }
 }

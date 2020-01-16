@@ -14,5 +14,8 @@ mongodb.MongoClient.connect(connectUrl,{useUnifiedTopology: true },function (err
     global.dbMyMoney = db.db("myMoney");
 });
 Object.keys(Apis).forEach(key=>{
-    Apis[key](app)
+    let item = Apis[key]
+    Object.keys(item).forEach(f=>{
+        item[f](app)
+    })
 });

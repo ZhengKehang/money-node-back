@@ -10,13 +10,17 @@ export default {
         });
     },
     getListByABId(app){
-        app.get('/change/getListByABId', function(req, res){
-            changeService.getChanges(req.body,'ABId');
+        apis.postApi(app,'/change/getListByABId', function(req, res){
+            changeService.getChanges(req.body,'ABId').then(resp=>{
+                res.send(resp)
+            });
         });
     },
     getListByPId(app){
-        app.get('/change/getListByPId', function(req, res){
-            changeService.getChanges(req.body,'PId');
+        apis.postApi(app,'/change/getListByPId', function(req, res){
+            changeService.getChanges(req.body,'PId').then(resp=>{
+                res.send(resp)
+            });
         });
     },
 }
