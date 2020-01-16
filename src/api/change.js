@@ -1,5 +1,6 @@
 import {apis} from '../utils/index.js'
 import ChangeService from '../services/ChangeService.js'
+import changeStatus from "../modules/change/status.js";
 const changeService = new ChangeService();
 export default {
     insert(app){
@@ -23,4 +24,9 @@ export default {
             });
         });
     },
+    getChangeStatus(app){
+        apis.postApi(app,'/change/getChangeStatus', function(req, res){
+            res.send(changeStatus)
+        });
+    }
 }
