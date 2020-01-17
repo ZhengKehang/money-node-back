@@ -6,7 +6,9 @@ const changeStatus = {
         {status:3,name:'理财',icon:''},
         {status:4,name:'红包',icon:''},
         {status:5,name:'租金',icon:''},
-        {status:100,name:'其他',icon:''}
+        {status:90,name:'其他',icon:''},
+        {status:99,name:'变更',icon:''},
+        {status:100,name:'起始',icon:''}
     ],
     give:[
         //status 101-300 支出
@@ -33,7 +35,9 @@ const changeStatus = {
         {status:121,name:'理发',icon:''},
         {status:122,name:'约会',icon:''},
         {status:123,name:'礼物',icon:''},
-        {status:300,name:'其他',icon:''},
+        {status:290,name:'其他',icon:''},
+        {status:299,name:'变更',icon:''},
+        {status:300,name:'起始',icon:''}
     ]
 };
 export default changeStatus

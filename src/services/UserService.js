@@ -23,6 +23,7 @@ export default class UserService extends BaseService{
             });
         });
     }
+
     /**
      * 获取用户列表
      * @param search 搜索条件

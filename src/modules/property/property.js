@@ -5,7 +5,6 @@ export default class Property {
      * @param property
      */
     constructor(property){
-        this.id = uuid.v1();//资产
         this.accountBookId = property.accountBookId;//账本id
         this.remark = property.remark;//备注
         this.number = property.number||0;//金额

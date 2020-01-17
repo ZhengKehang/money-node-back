@@ -13,7 +13,7 @@ export default class AccountService extends BaseService {
         return new Promise((resolve, reject)=>{
             this.dbs.myMoney(this.COLLERCTION.CHANGE).insertOne(change,function(err, resp) {
                 if (err) throw err;
-                resolve(resp)
+                resolve(resp.ops[0])
             });
         });
     }
@@ -22,7 +22,7 @@ export default class AccountService extends BaseService {
             let search = dealSearch(params,type);
             this.dbs.myMoney(this.COLLERCTION.CHANGE).find(search).toArray(function(err, resp) {
                 if (err) throw err;
-                resolve(resp)
+                resolve(resp.ops[0])
             });
         });
     }
