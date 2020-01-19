@@ -30,7 +30,19 @@ export default class PropertyService extends BaseService {
     async updateProperty(updateParams){
         let properties = await this.getProperties({propertyId:updateParams.propertyId},'PId');
         let property = properties[0];
-        property.distance = Math.abs(property.number - updateParams.number);
+        if(updateParams.changeStatus&&updateParams.distance){//流水引发资产变化
+            let changeStatus = updateParams.changeStatus;
+            let properStatus = property.status;
+            if(changeStatus>100&&properStatus>100
+                ||changeStatus<=100&&properStatus<=100){
+                throw '账户类型选择错误';
+            }
+            let number = property.number;
+            let distance = updateParams.distance;
+            updateParams.number = changeStatus>100? number- distance:number+distance;
+        }else{//资产变化引发流水变化
+            property.distance = Math.abs(property.number - updateParams.number);
+        }
         let whereStr = {"id":updateParams.propertyId};  // 查询条件
         let updateStr = {$set: { "number" : updateParams.number }};
         return new Promise((resolve, reject) => {
