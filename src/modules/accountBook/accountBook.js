@@ -8,7 +8,7 @@ export default class AccountBook {
         this.id = uuid.v1();
         this.uids = accountBook.uids;//共享uid列表
         this.createUid = accountBook.createUid;//创建者uid
-        this.name = accountBook.createUid;//账本名
+        this.name = accountBook.name;//账本名
         this.picture = accountBook.picture||null;//账本封面
         this.descript = accountBook.descript||null;//账本描述
         this.shareCode = uuid.v1();//分享码

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+            name="viewport"
+            content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>参与抽奖</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./join.css">
+</head>
+<body>
+
+<div class="join">
+    <div class="join-image"></div>
+    <div class="join-content" id="content">
+        <div class="join-title">
+            <span>南方的你</span>
+            <span>†</span>
+            <span>北方的我</span>
+        </div>
+        <input type="text"
+               id="inputName"
+               placeholder="请输入你的名字">
+        <div class="to-join"
+                id="toJoin">参与抽奖</div>
+    </div>
+    <div id="toast" style="display: none">
+        <p>报名成功</p>
+    </div>
+</div>
+
+</body>
+<script>
+    const url = ''
+    $('#toJoin').click(()=>{
+        let name = $('#inputName').val()
+        if (name) {
+            localStorage.setItem('get')
+            $.get(`${url}/join?name=${name}`,(resp)=>{
+                $('#toast').css('display','block')
+            })
+        }
+    })
+</script>
+</html>

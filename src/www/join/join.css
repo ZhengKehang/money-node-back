@@ -1,0 +1,84 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.join {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.join-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-image: url("join.jpeg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: blur(3px);
+}
+.join-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 60px;
+}
+.join .join-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 240px;
+}
+.join-title span {
+    color: #ffbfb7;
+}
+.join-title span:first-child{
+    color: #EDA723;
+}
+.join-title span:last-child {
+    color: #7C90B9;
+}
+#inputName {
+    box-sizing: border-box;
+    width: 60vw;
+    padding: 10px;
+    margin-bottom: 40px;
+    border: none;
+    color: #7C90B9;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 20px;
+}
+#inputName::placeholder {
+    color: #7C90B9;
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+}
+#inputName:focus {
+    outline: none;
+}
+.join .to-join {
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0;
+    border: none;
+    width: 60vw;
+    height: 40px;
+    color: #ffffff;
+    background-color: #EDA723;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}

@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --experimental-modules ./src/index.js"
   },
   "author": "zhengkehang",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
+    "express-static": "^1.2.6",
     "md5": "^2.2.1",
     "moment": "^2.24.0",
     "mongodb": "^3.4.1",
