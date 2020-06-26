@@ -5,7 +5,6 @@ import mongodb from 'mongodb'
 const connectUrl = "mongodb://localhost"
 import bodyParser from 'body-parser'
 import exStatic from 'express-static'
-app.use(exStatic('./src/www'))
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 let server = app.listen(8081, function () {
@@ -21,3 +20,4 @@ Object.keys(Apis).forEach(key=>{
         item[f](app)
     })
 });
+app.use('/www',exStatic('./src/www'))

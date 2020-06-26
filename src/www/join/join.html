@@ -16,9 +16,9 @@
     <div class="join-image"></div>
     <div class="join-content" id="content">
         <div class="join-title">
-            <span>南方的你</span>
-            <span>†</span>
-            <span>北方的我</span>
+            <span>南方的我</span>
+            <span>十</span>
+            <span>北方的你</span>
         </div>
         <input type="text"
                id="inputName"
@@ -26,21 +26,35 @@
         <div class="to-join"
                 id="toJoin">参与抽奖</div>
     </div>
-    <div id="toast" style="display: none">
-        <p>报名成功</p>
-    </div>
 </div>
 
 </body>
 <script>
-    const url = ''
+    (function(){
+        window.alert = function(name){
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display="none";
+            iframe.setAttribute("src", 'data:text/plain');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        }
+    })();
+    const url = 'http://120.26.131.106:8081/'
+    // const url = 'http://localhost:8081/'
     $('#toJoin').click(()=>{
         let name = $('#inputName').val()
         if (name) {
-            localStorage.setItem('get')
-            $.get(`${url}/join?name=${name}`,(resp)=>{
-                $('#toast').css('display','block')
+            localStorage.setItem('get',name)
+            $.post(`${url}lottery/create`,{name},(resp)=>{
+                if (resp.insertedCount) {
+                    alert('报名成功')
+                } else {
+                    alert('报名失败')
+                }
             })
+        } else {
+            alert('请输入名字')
         }
     })
 </script>
